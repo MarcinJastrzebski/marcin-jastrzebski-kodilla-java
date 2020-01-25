@@ -31,17 +31,23 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList(){
         //Given
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new LinkedList<Integer>();
         list.add(7);
         list.add(8);
         list.add(9);
         list.add(10);
-        //When
-        ArrayList<Integer> evenList = new ArrayList<Integer>();
+        List<Integer> evenList = new ArrayList<Integer>();
         evenList.add(8);
         evenList.add(10);
-        System.out.println("Testing evenList");
+        fofo(list);
+        //When
+        List<Integer> result = OddNumberExterminator.exterminate(list);
         //Then
-        Assert.assertEquals(evenList,OddNumberExterminator.exterminate(list));
+        Assert.assertEquals(evenList, result);
+    }
+    
+    public void fofo(List<Integer> list) {
+      //   
+        
     }
 }
