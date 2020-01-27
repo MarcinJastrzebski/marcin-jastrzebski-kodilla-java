@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CollectionTestSuite {
     @Before
@@ -14,34 +15,31 @@ public class CollectionTestSuite {
     }
     @After
     public void after(){
-        System.out.println("Test Case: end");
+        System.out.println("Test Case: end\n");
     }
     @Test
     public void testOddNumbersExterminatorEmptyList(){
         //Given
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(7);
-        list.clear();
+        List<Integer> emptyList = new ArrayList<Integer>();
         //When
-        ArrayList<Integer> emptyList = new ArrayList<Integer>();
-        System.out.println("Testing emptyList");
+        List<Integer> result = OddNumberExterminator.exterminate(emptyList);
         //Then
-        Assert.assertEquals(emptyList,list);
+        Assert.assertEquals(emptyList,result);
     }
     @Test
     public void testOddNumbersExterminatorNormalList(){
         //Given
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<Integer>();
         list.add(7);
         list.add(8);
         list.add(9);
         list.add(10);
-        //When
-        ArrayList<Integer> evenList = new ArrayList<Integer>();
+        List<Integer> evenList = new ArrayList<Integer>();
         evenList.add(8);
         evenList.add(10);
-        System.out.println("Testing evenList");
+        //When
+        List<Integer> result = OddNumberExterminator.exterminate(list);
         //Then
-        Assert.assertEquals(evenList,OddNumberExterminator.exterminate(list));
+        Assert.assertEquals(evenList,result);
     }
 }
