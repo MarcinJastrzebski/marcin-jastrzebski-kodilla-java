@@ -13,4 +13,5 @@ public class SimpleUser {
     public String getRealName(){
         return realName;
     }
+
 }
