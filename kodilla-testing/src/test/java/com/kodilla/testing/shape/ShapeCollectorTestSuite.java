@@ -2,15 +2,18 @@ package com.kodilla.testing.shape;
 
 import org.junit.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShapeCollectorTestSuite {
     @Before
     public void before() {
-        System.out.println("Test case: Begin");
+        System.out.println("Test case: begin");
     }
 
     @After
     public void after() {
-        System.out.println("Test case: End");
+        System.out.println("Test case: end");
     }
 
     @BeforeClass
@@ -59,7 +62,7 @@ public class ShapeCollectorTestSuite {
         shapeCollector.removeFigure(shape2);
 
         //Then
-        Assert.assertEquals(result, shapeCollector);
+        Assert.assertEquals(result.getSize(), shapeCollector.getSize());
     }
 
     @Test
@@ -80,10 +83,12 @@ public class ShapeCollectorTestSuite {
         ShapeCollector shapeCollector = new ShapeCollector();
         Shape shape = new Square();
         shapeCollector.addFigure(shape);
+        List<Shape> list = new ArrayList<Shape>();
+        list.add(shape);
         //When
         String result = shapeCollector.showFigures();
         //Then
-        Assert.assertEquals("Squares: 1", result);
+        Assert.assertEquals(list.toString(), result);
     }
 
 }
