@@ -1,8 +1,8 @@
 package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
-    String name;
-    Double field;
+    private String name;
+    private Double field;
 
     public Circle(double radius) {
         this.name = "Circle";

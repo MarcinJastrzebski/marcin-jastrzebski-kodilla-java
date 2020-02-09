@@ -1,8 +1,8 @@
 package com.kodilla.testing.shape;
 
 public class Square implements Shape {
-    String name;
-    Double field;
+    private String name;
+    private Double field;
 
     public Square(double side) {
         this.name = "Square";
@@ -15,11 +15,11 @@ public class Square implements Shape {
 
     @Override
     public String getShapeName() {
-        return null;
+        return name;
     }
 
     @Override
     public double getField() {
-        return 0;
+        return field;
     }
 }
