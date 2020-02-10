@@ -45,6 +45,9 @@ public class StatisticsCounterTestSuite {
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
         //Then
+        Assert.assertEquals(100.0, statisticsCounter.getNumberOfUsers(), 0.0001);
+        Assert.assertEquals(0.0, statisticsCounter.getNumberOfPosts(), 0.0001);
+        Assert.assertEquals(1000.0, statisticsCounter.getNumberOfComments(), 0.0001);
         Assert.assertEquals(0.0, statisticsCounter.getAvgPostsPerUser(), 0.0001);
         Assert.assertEquals(10.0, statisticsCounter.getAvgCommentsPerUser(), 0.0001);
         Assert.assertEquals(0.0, statisticsCounter.getAvgCommentsPerPost(), 0.0001);
@@ -57,6 +60,9 @@ public class StatisticsCounterTestSuite {
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
         //Then
+        Assert.assertEquals(100.0, statisticsCounter.getNumberOfUsers(), 0.0001);
+        Assert.assertEquals(1000.0, statisticsCounter.getNumberOfPosts(), 0.0001);
+        Assert.assertEquals(1000.0, statisticsCounter.getNumberOfComments(), 0.0001);
         Assert.assertEquals(10.0, statisticsCounter.getAvgPostsPerUser(), 0.0001);
         Assert.assertEquals(10.0, statisticsCounter.getAvgCommentsPerUser(), 0.0001);
         Assert.assertEquals(1.0, statisticsCounter.getAvgCommentsPerPost(), 0.0001);
@@ -69,6 +75,9 @@ public class StatisticsCounterTestSuite {
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
         //Then
+        Assert.assertEquals(100.0, statisticsCounter.getNumberOfUsers(), 0.0001);
+        Assert.assertEquals(1000.0, statisticsCounter.getNumberOfPosts(), 0.0001);
+        Assert.assertEquals(0.0, statisticsCounter.getNumberOfComments(), 0.0001);
         Assert.assertEquals(10.0, statisticsCounter.getAvgPostsPerUser(), 0.0001);
         Assert.assertEquals(0.0, statisticsCounter.getAvgCommentsPerUser(), 0.0001);
         Assert.assertEquals(0.0, statisticsCounter.getAvgCommentsPerPost(), 0.0001);
@@ -82,6 +91,9 @@ public class StatisticsCounterTestSuite {
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
         //Then
+        Assert.assertEquals(100.0, statisticsCounter.getNumberOfUsers(), 0.0001);
+        Assert.assertEquals(100.0, statisticsCounter.getNumberOfPosts(), 0.0001);
+        Assert.assertEquals(10.0, statisticsCounter.getNumberOfComments(), 0.0001);
         Assert.assertEquals(1.0, statisticsCounter.getAvgPostsPerUser(), 0.0001);
         Assert.assertEquals(0.1, statisticsCounter.getAvgCommentsPerUser(), 0.0001);
         Assert.assertEquals(0.1, statisticsCounter.getAvgCommentsPerPost(), 0.0001);
@@ -95,6 +107,9 @@ public class StatisticsCounterTestSuite {
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
         //Then
+        Assert.assertEquals(100.0, statisticsCounter.getNumberOfUsers(), 0.0001);
+        Assert.assertEquals(10.0, statisticsCounter.getNumberOfPosts(), 0.0001);
+        Assert.assertEquals(100.0, statisticsCounter.getNumberOfComments(), 0.0001);
         Assert.assertEquals(0.1, statisticsCounter.getAvgPostsPerUser(), 0.0001);
         Assert.assertEquals(1.0, statisticsCounter.getAvgCommentsPerUser(), 0.0001);
         Assert.assertEquals(10.0, statisticsCounter.getAvgCommentsPerPost(), 0.0001);
@@ -108,6 +123,9 @@ public class StatisticsCounterTestSuite {
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
         //Then
+        Assert.assertEquals(0.0, statisticsCounter.getNumberOfUsers(), 0.0001);
+        Assert.assertEquals(1000.0, statisticsCounter.getNumberOfPosts(), 0.0001);
+        Assert.assertEquals(1000.0, statisticsCounter.getNumberOfComments(), 0.0001);
         Assert.assertEquals(0.0, statisticsCounter.getAvgPostsPerUser(), 0.0001);
         Assert.assertEquals(0.0, statisticsCounter.getAvgCommentsPerUser(), 0.0001);
         Assert.assertEquals(1.0, statisticsCounter.getAvgCommentsPerPost(), 0.0001);
@@ -121,6 +139,9 @@ public class StatisticsCounterTestSuite {
         //When
         statisticsCounter.calculateAdvStatistics(statistics);
         //Then
+        Assert.assertEquals(100.0, statisticsCounter.getNumberOfUsers(), 0.0001);
+        Assert.assertEquals(1000.0, statisticsCounter.getNumberOfPosts(), 0.0001);
+        Assert.assertEquals(1000.0, statisticsCounter.getNumberOfComments(), 0.0001);
         Assert.assertEquals(10.0, statisticsCounter.getAvgPostsPerUser(), 0.0001);
         Assert.assertEquals(10.0, statisticsCounter.getAvgCommentsPerUser(), 0.0001);
         Assert.assertEquals(1.0, statisticsCounter.getAvgCommentsPerPost(), 0.0001);
