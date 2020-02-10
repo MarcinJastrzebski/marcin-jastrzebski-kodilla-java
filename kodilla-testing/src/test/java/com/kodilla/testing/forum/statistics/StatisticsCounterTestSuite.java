@@ -1,12 +1,9 @@
 package com.kodilla.testing.forum.statistics;
 
-import javafx.beans.binding.When;
 import org.junit.*;
 import org.mockito.Mockito;
-
 import java.util.*;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class StatisticsCounterTestSuite {
@@ -17,7 +14,7 @@ public class StatisticsCounterTestSuite {
     public void before() {
         System.out.println("Test case: begin");
 
-        statisticsCounter=new StatisticsCounter();
+        statisticsCounter = new StatisticsCounter();
         statistics = Mockito.mock(Statistics.class);
         when(statistics.postsCount()).thenReturn(1000);
         when(statistics.commentsCount()).thenReturn(1000);
