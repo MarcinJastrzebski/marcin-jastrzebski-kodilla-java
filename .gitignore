@@ -3,6 +3,7 @@ HELP.md
 build/
 kodilla-testing/build/
 kodilla-stream/build/
+kodilla-exception/build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
