@@ -5,8 +5,12 @@ import org.junit.Test;
 
 import javax.jws.soap.SOAPBinding;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -136,5 +140,29 @@ public class BoardTestSuite {
 
         //Then
         Assert.assertEquals(2, longTasks);
+    }
+
+    @Test
+    public void testAddTaskListAverageWorkingOnTask(){
+        //Given
+        Board project = prepareTestData();
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+
+        List<Integer> numberOfDaysWorkingOnTask = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(taskList -> taskList.getTasks().stream())
+                .map(task -> Period.between(task.getCreated(),LocalDate.now()).getDays())
+                .collect(Collectors.toList());
+
+        //numberOfDaysWorkingOnTask.stream().forEach(System.out::println);
+
+        double averageWorkingOnTask = IntStream.range(0,numberOfDaysWorkingOnTask.size())
+                .map(n-> numberOfDaysWorkingOnTask.get(n))
+                .average().getAsDouble();
+
+        //Then
+        Assert.assertEquals(10.00, averageWorkingOnTask, 0.0001);
     }
 }
