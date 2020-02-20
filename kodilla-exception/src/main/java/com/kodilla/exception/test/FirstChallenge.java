@@ -13,7 +13,7 @@ public class FirstChallenge {
         } finally {
             System.out.println("If you incorrectly set divider into 0. I will return 0");
         }
-        
+
         if (b == 0) {
             return 0;
         } else {
