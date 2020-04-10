@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 class MovieStore {
 
@@ -27,5 +28,24 @@ class MovieStore {
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
         return booksTitlesWithTranslations;
+    }
+
+    //Wykorzystując poznane już Streamy wykonaj iterację po poniższej mapie tytułów i wyświetl wszystkie tytuły w jednym ciągu separując je wykrzyknikiem:
+    public String showCollection(Map<String,List<String>> moviesSollection){
+
+       // String result = moviesSollection.entrySet().stream()
+       //         .forEach(e -> e.getKey().);
+
+        System.out.println("# elements: " + moviesSollection.size());
+        String result = moviesSollection.entrySet().stream()
+                .map(entry -> entry.getValue().toString())
+                .collect(Collectors.joining("!","",""));
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        MovieStore ms = new MovieStore();
+        System.out.println(ms.showCollection(ms.getMovies()));
     }
 }
