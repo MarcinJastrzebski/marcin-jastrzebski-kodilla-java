@@ -31,15 +31,12 @@ class MovieStore {
     }
 
     //Wykorzystując poznane już Streamy wykonaj iterację po poniższej mapie tytułów i wyświetl wszystkie tytuły w jednym ciągu separując je wykrzyknikiem:
-    public String showCollection(Map<String,List<String>> moviesSollection){
-
-       // String result = moviesSollection.entrySet().stream()
-       //         .forEach(e -> e.getKey().);
+    public String showCollection(Map<String, List<String>> moviesSollection) {
 
         System.out.println("# elements: " + moviesSollection.size());
         String result = moviesSollection.entrySet().stream()
-                .map(entry -> entry.getValue().toString())
-                .collect(Collectors.joining("!","",""));
+                .map(entry -> entry.getValue().get(1))
+                .collect(Collectors.joining("!"));
 
         return result;
     }
