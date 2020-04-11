@@ -6,11 +6,13 @@ public class OrderRequest {
     private User user;
     private LocalDateTime date;
     private Product product;
+    private Integer quantity;
 
-    public OrderRequest(final User user, final LocalDateTime date, final Product product) {
+    public OrderRequest(final User user, final LocalDateTime date, final Product product, final Integer quantity) {
         this.user = user;
         this.date = date;
         this.product = product;
+        this.quantity = quantity;
     }
 
     public User getUser() {
@@ -23,5 +25,9 @@ public class OrderRequest {
 
     public Product getProduct() {
         return product;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
     }
 }
