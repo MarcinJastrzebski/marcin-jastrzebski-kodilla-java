@@ -35,7 +35,7 @@ class MovieStore {
 
         System.out.println("# elements: " + moviesSollection.size());
         String result = moviesSollection.entrySet().stream()
-                .map(entry -> entry.getValue().get(1))
+                .flatMap(entry -> entry.getValue().stream())
                 .collect(Collectors.joining("!"));
 
         return result;
