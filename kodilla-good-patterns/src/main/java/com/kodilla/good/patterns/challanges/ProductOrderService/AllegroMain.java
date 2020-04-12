@@ -12,10 +12,14 @@ public class AllegroMain {
         MailingInformationService mailingInformationService = new MailingInformationService();
         AllegroOrderService allegroOrderService = new AllegroOrderService();
         AllegroOrderRepository allegroOrderRepository = new AllegroOrderRepository();
-        Stock stock = new AllegroStock();
+        StockService stockService = new AllegroStockService();
+        stockService.addItemsToStock(game,10);
 
-        ProductOrderService productOrderService = new ProductOrderService(mailingInformationService, allegroOrderService, allegroOrderRepository, stock);
-        productOrderService.process(new OrderRequest(user1, LocalDateTime.now(), game,10));
+        ProductOrderService productOrderService = new ProductOrderService(mailingInformationService, allegroOrderService, allegroOrderRepository, stockService);
+        productOrderService.process(new OrderRequest(user1, LocalDateTime.now(), game,8));
+        productOrderService.process(new OrderRequest(user2, LocalDateTime.now(), game,2));
+        productOrderService.process(new OrderRequest(user2, LocalDateTime.now(), toothbrush,11));
+        stockService.addItemsToStock(toothbrush,15);
         productOrderService.process(new OrderRequest(user2, LocalDateTime.now(), toothbrush,11));
         productOrderService.process(new OrderRequest(user1, LocalDateTime.now(), slippers,12));
 
