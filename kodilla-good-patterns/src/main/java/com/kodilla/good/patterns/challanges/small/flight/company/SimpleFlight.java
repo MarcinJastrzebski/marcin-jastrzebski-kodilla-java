@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.challanges.small.flight.company;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class SimpleFlight implements Flight {
     private String origin;
@@ -33,5 +34,19 @@ public class SimpleFlight implements Flight {
                 "from='" + origin + '\'' +
                 ", to='" + destination + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SimpleFlight that = (SimpleFlight) o;
+        return origin.equals(that.origin) &&
+                destination.equals(that.destination);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(origin, destination);
     }
 }
