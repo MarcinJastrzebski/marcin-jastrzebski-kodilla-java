@@ -7,5 +7,5 @@ public interface Supplier {
 
     String getAddress();
 
-    void process(ProductOrderService productOrderService, OrderRequest orderRequest);
+    OrderDto process(OrderRequest orderRequest);
 }

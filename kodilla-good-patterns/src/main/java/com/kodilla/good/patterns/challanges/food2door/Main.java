@@ -1,37 +1,35 @@
 package com.kodilla.good.patterns.challanges.food2door;
 
-
 import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
-        Supplier extraFoodShop = new ExtraFoodShop("Extra Food Shop", "biuro@extrafoodshop.pl", "Lodź");
         InformationService informationService = new MailingInformationService();
         StockService extraFoodStockService = new ExtraFoodStockService();
-        ProductOrderService extraFoodOrderService = new ProductOrderService(informationService, extraFoodStockService);
+        Supplier extraFoodShop = new ExtraFoodShop("Extra Food Shop", "biuro@extrafoodshop.pl", "Lodź", extraFoodStockService);
         User user1 = new SimpleUser("MiLO", " Michal Lodzinski");
         User user2 = new SimpleUser("Zbych", " Zbigniew Kowalski");
         SimpleProduct bananas = new SimpleProduct("Bananas", "001");
         SimpleProduct tomatoes = new SimpleProduct("Tomatoes", "002");
-        extraFoodOrderService.getStockService().addItemsToStock(bananas, 20);
+        extraFoodStockService.addItemsToStock(bananas, 20);
         OrderRequest firstOrder = new OrderRequest(user1, LocalDateTime.now(), bananas, 15);
         OrderRequest secondOrder = new OrderRequest(user1, LocalDateTime.now(), tomatoes, 55);
 
-        Supplier HealthySHop = new HealthyShop("Healthy Shop", " biuro@healthyshop.pl", "Warszawa");
         StockService healthyFoodStockService = new HealthyShopStockService();
-        ProductOrderService healthyShopOrderService = new ProductOrderService(informationService, healthyFoodStockService);
+        Supplier HealthySHop = new HealthyShop("Healthy Shop", " biuro@healthyshop.pl", "Warszawa", healthyFoodStockService);
 
-        process(extraFoodShop, extraFoodOrderService, firstOrder);
-        process(extraFoodShop, extraFoodOrderService, firstOrder);
-        extraFoodOrderService.getStockService().addItemsToStock(bananas, 20);
-        process(extraFoodShop, extraFoodOrderService, firstOrder);
-        process(HealthySHop, healthyShopOrderService, secondOrder);
+        process(extraFoodShop, informationService, firstOrder);
+        process(extraFoodShop, informationService, firstOrder);
+        extraFoodStockService.addItemsToStock(bananas, 20);
+
+        process(extraFoodShop, informationService, firstOrder);
+        process(HealthySHop, informationService, secondOrder);
+
         healthyFoodStockService.addItemsToStock(tomatoes, 60);
-        process(HealthySHop, healthyShopOrderService, secondOrder);
-
+        process(HealthySHop, informationService, secondOrder);
     }
 
-    public static void process(Supplier supplier, ProductOrderService productOrderService, OrderRequest orderRequest) {
-        supplier.process(productOrderService, orderRequest);
+    public static void process(Supplier supplier, InformationService informationService, OrderRequest orderRequest) {
+        informationService.inform(orderRequest, supplier.process(orderRequest));
     }
 }
