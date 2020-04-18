@@ -2,7 +2,12 @@ package com.kodilla.good.patterns.challanges.food2door;
 
 import java.time.LocalDateTime;
 
-public class Main {
+public class Shop {
+
+    public static void process(Supplier supplier, InformationService informationService, OrderRequest orderRequest) {
+        informationService.inform(orderRequest, supplier.process(orderRequest));
+    }
+
     public static void main(String[] args) {
         InformationService informationService = new MailingInformationService();
         StockService extraFoodStockService = new ExtraFoodStockService();
@@ -27,9 +32,5 @@ public class Main {
 
         healthyFoodStockService.addItemsToStock(tomatoes, 60);
         process(HealthySHop, informationService, secondOrder);
-    }
-
-    public static void process(Supplier supplier, InformationService informationService, OrderRequest orderRequest) {
-        informationService.inform(orderRequest, supplier.process(orderRequest));
     }
 }
