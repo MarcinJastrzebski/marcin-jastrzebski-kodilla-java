@@ -21,7 +21,7 @@ public class BoardTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
         //When & Then
-        Assert.assertEquals("second task", board.getInProgressList().tasks.get(0));
+        Assert.assertEquals("first task", board.getInProgressList().tasks.get(0));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class BoardTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
         //When & Then
-        Assert.assertEquals("done task", board.getDoneList().tasks.get(0));
+        Assert.assertEquals("first task", board.getDoneList().tasks.get(0));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class BoardTestSuite {
         board.getToDoList().tasks.add("raz");
         board.getInProgressList().tasks.add("dwa");
         board.getDoneList().tasks.add("trzy");
-        // & Then
+        //Then
         Assert.assertEquals("raz", board.getToDoList().tasks.get(1));
         Assert.assertEquals("dwa", board.getInProgressList().tasks.get(1));
         Assert.assertEquals("trzy", board.getDoneList().tasks.get(1));
