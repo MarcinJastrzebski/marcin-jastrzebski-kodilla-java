@@ -35,7 +35,7 @@ public class OrganizationFacadeTestSuite {
         employee1.getCompanies().add(company1);
 
         companyDao.save(company1);
-        int companyId = company1.getId();
+        employeeDao.save(employee1);
 
         //When
         List<Employee> findEmployee = organizationFacade.findEmployee("oga");
@@ -46,7 +46,8 @@ public class OrganizationFacadeTestSuite {
             Assert.assertEquals(1, findEmployee.size());
             Assert.assertEquals(1, findCompany.size());
         } finally {
-            companyDao.deleteById(companyId);
+            companyDao.deleteAll();
+            employeeDao.deleteAll();
 
         }
     }
