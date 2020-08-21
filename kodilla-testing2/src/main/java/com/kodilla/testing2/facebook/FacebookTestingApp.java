@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FacebookTestingApp {
-    public static final String BUTTON_NEW_ACCOUNT = "//*[@id=\"u_0_2\"]";
-    public static final String XPATH_DAY = "//*[@id=\"day\"]";
-    public static final String XPATH_MONTH = "//*[@id=\"month\"]";
-    public static final String XPATH_YEAR = "//*[@id=\"year\"]";
+    private static final String BUTTON_NEW_ACCOUNT = "//*[@id=\"u_0_2\"]";
+    private static final String XPATH_DAY = "//*[@id=\"day\"]";
+    private static final String XPATH_MONTH = "//*[@id=\"month\"]";
+    private static final String XPATH_YEAR = "//*[@id=\"year\"]";
 
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
