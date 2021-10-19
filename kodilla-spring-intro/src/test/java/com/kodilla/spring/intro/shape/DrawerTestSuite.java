@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DrawerTestSuite {
     @Test
-    public void testDoDrawingWithCircle() {
+    void testDoDrawingWithCircle() {
         //Given
         Circle circle = new Circle();
         //When
@@ -17,7 +17,7 @@ class DrawerTestSuite {
     }
 
     @Test
-    public void testDoDrawingWithTriangle() {
+    void testDoDrawingWithTriangle() {
         //Given
         Triangle triangle = new Triangle();
         //When
