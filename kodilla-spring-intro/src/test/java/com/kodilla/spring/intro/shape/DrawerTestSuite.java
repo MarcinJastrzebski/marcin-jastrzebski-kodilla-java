@@ -1,9 +1,10 @@
 package com.kodilla.spring.intro.shape;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class DrawerTestSuite {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class DrawerTestSuite {
     @Test
     public void testDoDrawingWithCircle() {
         //Given
@@ -12,7 +13,7 @@ public class DrawerTestSuite {
         Drawer drawer = new Drawer(circle);
         String result = drawer.doDrawing();
         //Then
-        Assert.assertEquals("This is a circle", result);
+        assertEquals("This is a circle", result);
     }
 
     @Test
@@ -23,6 +24,6 @@ public class DrawerTestSuite {
         Drawer drawer = new Drawer(triangle);
         String result = drawer.doDrawing();
         //Then
-        Assert.assertEquals("This is a triangle", result);
+        assertEquals("This is a triangle", result);
     }
 }
